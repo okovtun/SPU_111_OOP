@@ -3,6 +3,13 @@ https://www.youtube.com/watch?v=MQwW_YFhVCU&list=PLeqyOOqxeiIPy9kTEWJfeRfP1SlTcc
 https://meet.google.com/mho-khdw-fhj
 
 TODO:
+Для класса Fraction перегрузить:
+1. Арифметические операторы:+, -, *, /;
+2. Составные присваивания:	+=, -=, *=, /=;
+3. Incremento/Decremento;
+4. Операторы сравнения: ==, !=, >, <, >=, <=;
+
+DONE:
 В новом проекте реализовать класс Fraction, опиывающий простую дробь.
 В классе должны быть все необходимые методы и операторы.
 
