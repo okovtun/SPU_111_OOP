@@ -4,7 +4,17 @@ https://meet.google.com/mho-khdw-fhj
 
 TODO:
 1. Проверчный код в секции CONVERSIONS_HOME_WORK должен заработать:
-	
+	https://github.com/okovtun/SPU_111_OOP/blob/a434eb0cd56ac34d91ff59951c5d6d8e5b2afa61/IntroductionToOOP/Fraction/main.cpp#L361
+2. В Solution IntroductionToOOP добавить проект String и реализовать в нем класс String,
+   описывающий строку. Обеспечить следующие варианты создания объектов:
+   String str1;		//создает пустую строку размером 80 Byte
+   String str2(44);	//создает пустую строку заданного размера, в данном случае 44 Байта
+   String str3 = "Hello";
+   String str4 = "World";
+   String str5 = str3 + str4;
+   cout << str5 << endl;
+
+   cout << "Введите строку: "; cin >> str1;
 
 DONE:
 Для класса Fraction перегрузить:

@@ -94,6 +94,13 @@ public:
 	{
 		return *this = *this*other;
 	}
+	Fraction& operator()(int integer, int numerator, int denominator)
+	{
+		set_integer(integer);
+		set_numerator(numerator);
+		set_denominator(denominator);
+		return *this;
+	}
 
 	//				Incremento/Decremento:
 	Fraction& operator++()	//Prefix increment
@@ -234,6 +241,38 @@ std::ostream& operator<<(std::ostream& os, const Fraction& obj)
 	if (!obj.get_integer() && !obj.get_numerator())os << 0;
 	return os;
 }
+std::istream& operator>>(std::istream& is, Fraction& obj)
+{
+	/*int integer, numerator, denominator;
+	cin >> integer >> numerator >> denominator;
+	obj(integer, numerator, denominator);*/
+	const int SIZE = 256;
+	char sz_buffer[SIZE] = {};//sz_ - String Zero
+	//is >> sz_buffer;
+	is.getline(sz_buffer, SIZE);
+	char* sz_numbers[3] = {};
+	char sz_delimiters[] = "() /";
+	//https://cplusplus.com/reference/cstring/
+	//https://cplusplus.com/reference/cstring/strtok/
+	int n = 0;	//Индекс элемента в массиве с подстроками (токенами) sz_numbers
+	for (char* pch = strtok(sz_buffer, sz_delimiters); pch; pch = strtok(NULL, sz_delimiters))
+	{
+		sz_numbers[n++] = pch;
+	}
+	//for (int i = 0; i < n; i++)cout << sz_numbers[i] << "\t"; cout << endl;
+	obj = Fraction();
+	switch (n)
+	{
+		//atoi() - ASCII-string to int (функция преобразования строки в int)
+	case 1: obj.set_integer(atoi(sz_numbers[0])); break;
+	case 2: 
+		obj.set_numerator(atoi(sz_numbers[0]));
+		obj.set_denominator(atoi(sz_numbers[1]));
+		break;
+	case 3:obj(atoi(sz_numbers[0]), atoi(sz_numbers[1]), atoi(sz_numbers[2]));
+	}
+	return is;
+}
 
 //#define CONSTRUCTORS_CHECK
 //#define ARITHMETICAL_OPERATORS
@@ -363,4 +402,16 @@ operator type()
 	cout << A << endl;
 #endif // DEBUG
 
+	Fraction A(2,3,4);
+	cout << "Введите простую дробь: "; 
+	cin >> A;
+	cout << A << endl;
+	/*
+	--------------------------------------------------------
+	5
+	1/2
+	2(2/3)
+	2 3/4
+	--------------------------------------------------------
+	*/
 }
