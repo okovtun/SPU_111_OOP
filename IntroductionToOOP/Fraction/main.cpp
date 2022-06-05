@@ -1,6 +1,9 @@
 ﻿//Fraction
 #include<iostream>
 using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
 
 class Fraction;
 Fraction operator*(Fraction left, Fraction right);
@@ -45,7 +48,7 @@ public:
 		this->denominator = 1;
 		cout << "DefaultConstructor:\t" << this << endl;
 	}
-	Fraction(int integer)
+	explicit Fraction(int integer)
 	{
 		this->integer = integer;
 		this->numerator = 0;
@@ -103,6 +106,16 @@ public:
 		Fraction old = *this;
 		integer++;
 		return old;
+	}
+
+	//			Type-cast operators:
+	explicit operator int()const
+	{
+		return this->integer;
+	}
+	operator double()const
+	{
+		return integer + (double)numerator / denominator;
 	}
 
 	//				Methods:
@@ -166,7 +179,69 @@ Fraction operator/(const Fraction& left, const Fraction& right)
 	return left * right.inverted();
 }
 
+bool operator==(Fraction left, Fraction right)
+{
+	left.to_improper();
+	right.to_improper();
+	/*if (left.get_numerator()*right.get_denominator() == right.get_numerator()*left.get_denominator())
+		return true;
+	else
+		return false;*/
+	return 
+		left.get_numerator()*right.get_denominator() == 
+		right.get_numerator()*left.get_denominator();
+}
+bool operator!=(const Fraction& left, const Fraction& right)
+{
+	return !(left == right);
+}
+bool operator>(const Fraction& left, const Fraction& right)
+{
+	/*left.to_improper();
+	right.to_improper();
+	return
+		left.get_numerator()*right.get_denominator() >
+		right.get_numerator()*left.get_denominator();*/
+	return (double)left > right;
+}
+bool operator<(Fraction left, Fraction right)
+{
+	left.to_improper();
+	right.to_improper();
+	return
+		left.get_numerator()*right.get_denominator() <
+		right.get_numerator()*left.get_denominator();
+}
+bool operator>=(const Fraction& left, const Fraction& right)
+{
+	//return left > right || left == right;
+	return !(left < right);
+}
+bool operator<=(const Fraction& left, const Fraction& right)
+{
+	return left < right || left == right;
+}
+
+std::ostream& operator<<(std::ostream& os, const Fraction& obj)
+{
+	if (obj.get_integer())os << obj.get_integer();
+	if (obj.get_numerator())
+	{
+		if (obj.get_integer())os << "(";
+		os << obj.get_numerator() << "/" << obj.get_denominator();
+		if (obj.get_integer())os << ")";
+	}
+	if (!obj.get_integer() && !obj.get_numerator())os << 0;
+	return os;
+}
+
 //#define CONSTRUCTORS_CHECK
+//#define ARITHMETICAL_OPERATORS
+//#define COMPARISON_OPERATORS
+//#define TYPE_CONVERSIONS_BASICS
+//#define CONVERSIONS_FROM_OTHER_TO_CLASS
+//#define CONVERSION_FROM_CLASS_TO_OTHER
+//#define CONVERSIONS_HOME_WORK
 
 void main()
 {
@@ -192,6 +267,7 @@ void main()
 	F.print();
 #endif // CONSTRUCTORS_CHECK
 
+#ifdef ARITHMETICAL_OPERATORS
 	Fraction A(2, 3, 4);
 	A.print();
 	/*A.to_improper();
@@ -219,8 +295,72 @@ void main()
 		cout << i << "\t";
 	}
 	cout << endl;
-	for (Fraction i(3,4); i.get_integer() < 10; i++)
+	for (Fraction i(3, 4); i.get_integer() < 10; i++)
 	{
 		i.print();
 	}
+#endif // ARITHMETICAL_OPERATORS
+
+#ifdef COMPARISON_OPERATORS
+	cout << (Fraction(1, 2) > Fraction(5, 10)) << endl;
+#endif // COMPARISON_OPERATORS
+
+#ifdef TYPE_CONVERSIONS_BASICS
+	//(type)value - C-like notation		(C-подобная форма записи)
+//type(value) - Functional notation	(Фнкциональная форма записи)
+
+	cout << (double)15 / 2 << endl;
+
+	int a = 2;		//No conversions
+	double b = 3;	//From less to more
+	int c = a + b;	//From more to less without data loss
+	int d = 2.5;	//From more to less with data loss  
+#endif // TYPE_CONVERSIONS_BASICS
+
+	/*
+		1. Из других типов в наш (from other to class).
+		   Выполняет конструктор с одним параметром и оператор присваивания
+						(Single-argument constructor и CopyAssignment);
+		2. Из нашего типа в другие типы. Выполняют операторы преобразования типов;
+	*/
+
+#ifdef CONVERSIONS_FROM_OTHER_TO_CLASS
+	//1. Single-argument constructor;
+//2. Assignment operator;
+
+//Fraction A = 5;		//From int to Fraction
+	Fraction A;
+	cout << "\n--------------------------------\n";
+	A = Fraction(5);
+	cout << "\n--------------------------------\n";
+	cout << A << endl;
+#endif // CONVERSIONS_FROM_OTHER_TO_CLASS
+
+#ifdef CONVERSION_FROM_CLASS_TO_OTHER
+	/*
+--------------------------------------------------------
+operator type()
+{
+	......
+	......
+	return ...;
+}
+--------------------------------------------------------
+*/
+
+	Fraction A(2, 3, 4);
+	cout << A << endl;
+
+	int a = A;
+	cout << a << endl;
+
+	double b = A;
+	cout << b << endl;
+#endif // CONVERSION_FROM_CLASS_TO_OTHER
+
+#ifdef CONVERSIONS_HOME_WORK
+	Fraction A = 2.75;
+	cout << A << endl;
+#endif // DEBUG
+
 }

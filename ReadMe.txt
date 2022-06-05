@@ -3,6 +3,10 @@ https://www.youtube.com/watch?v=MQwW_YFhVCU&list=PLeqyOOqxeiIPy9kTEWJfeRfP1SlTcc
 https://meet.google.com/mho-khdw-fhj
 
 TODO:
+1. Проверчный код в секции CONVERSIONS_HOME_WORK должен заработать:
+	
+
+DONE:
 Для класса Fraction перегрузить:
 1. Арифметические операторы:+, -, *, /;
 2. Составные присваивания:	+=, -=, *=, /=;
