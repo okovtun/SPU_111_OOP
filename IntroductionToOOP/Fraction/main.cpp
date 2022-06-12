@@ -55,6 +55,14 @@ public:
 		this->denominator = 1;
 		cout << "1argConstructor:\t" << this << endl;
 	}
+	Fraction(double decimal)
+	{
+		decimal += 1e-10;
+		integer = decimal;
+		denominator = 1e+9;
+		numerator = (decimal - integer)*denominator;
+		reduce();
+	}
 	Fraction(int numerator, int denominator)
 	{
 		this->integer = 0;
@@ -148,6 +156,29 @@ public:
 		inverted.denominator = buffer;
 		return inverted;
 	}
+	void reduce()
+	{
+		int more, less, rest;
+		if (numerator > denominator)
+		{
+			more = numerator;
+			less = denominator;
+		}
+		else
+		{
+			more = denominator;
+			less = numerator;
+		}
+		do
+		{
+			rest = more % less;
+			more = less;
+			less = rest;
+		} while (rest);
+		int GCD = more;	//Greatest Common Divisor
+		numerator /= GCD;
+		denominator /= GCD;
+	}
 	void print()const
 	{
 		if (integer)cout << integer;
@@ -209,7 +240,7 @@ bool operator>(const Fraction& left, const Fraction& right)
 	return
 		left.get_numerator()*right.get_denominator() >
 		right.get_numerator()*left.get_denominator();*/
-	return (double)left > right;
+	return (double)left > (double)right;
 }
 bool operator<(Fraction left, Fraction right)
 {
@@ -280,7 +311,8 @@ std::istream& operator>>(std::istream& is, Fraction& obj)
 //#define TYPE_CONVERSIONS_BASICS
 //#define CONVERSIONS_FROM_OTHER_TO_CLASS
 //#define CONVERSION_FROM_CLASS_TO_OTHER
-//#define CONVERSIONS_HOME_WORK
+#define CONVERSIONS_HOME_WORK
+//#define INPUT_CHECK
 
 void main()
 {
@@ -398,12 +430,14 @@ operator type()
 #endif // CONVERSION_FROM_CLASS_TO_OTHER
 
 #ifdef CONVERSIONS_HOME_WORK
-	Fraction A = 2.75;
+	cout << INT_MAX << endl;
+	Fraction A = 2.76;
 	cout << A << endl;
 #endif // DEBUG
 
-	Fraction A(2,3,4);
-	cout << "Введите простую дробь: "; 
+#ifdef INPUT_CHECK
+	Fraction A(2, 3, 4);
+	cout << "Введите простую дробь: ";
 	cin >> A;
 	cout << A << endl;
 	/*
@@ -414,4 +448,6 @@ operator type()
 	2 3/4
 	--------------------------------------------------------
 	*/
+#endif // INPUT_CHECK
+
 }
