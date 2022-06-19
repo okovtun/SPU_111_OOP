@@ -34,6 +34,13 @@ String::String(const String& other) : String(other.str)
 	//Deep copy (Глубокое копирование, побитовое копирование, побайтовое/поэементное копирование)
 	cout << "CopyConstructor:" << this << endl;
 }
+String::String(String&& other)
+{
+	this->size = other.size;
+	this->str = other.str;
+	other.str = nullptr;
+	cout << "MoveConstructor:" << this << endl;
+}
 String::~String()
 {
 	delete[] this->str;

@@ -63,10 +63,19 @@ void main()
 #ifdef OPERATOR_PLUS_CHECK
 	String str1 = "Hello";
 	String str2 = "World";
-	//String str3 = str1 + " " + str2;
-	//cout << str3 << endl;
-	str1 += str2;
-	cout << str1 << endl;
+	cout << "\n----------------------------------\n";
+	String str3 = str1 + str2;
+	cout << "\n----------------------------------\n";
+	cout << str3 << endl;
+	//str1 += str2;
+	//cout << str1 << endl;
+
+	//MoveMethods:		С++ 11
+	//MoveConstructor - Конструктор переноса.
+	//MoveAssignment  - Оператор присваивания переноса.
+	//---------------------------------------------------------------------------
+	//CopyMethods: DeepCopy		(Глубокое копирование с выделением памяти и побайтовым копированием памяти)
+	//MoveMethods: ShallowCopy	(Поверхностное копирование - копирование адреса уже выделенной памяти)
 #endif // OPERATOR_PLUS_CHECK
 
 #ifdef KEYBOARD_INPUT_CHECK

@@ -31,6 +31,7 @@ public:
 	explicit String(int size = 80);
 	String(const char* str);
 	String(const String& other);
+	String(String&& other);	//String&& - reference to r-value
 	~String();
 
 	//				Operators
