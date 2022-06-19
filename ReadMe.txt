@@ -6,6 +6,11 @@ TOREAD:
 https://cplusplus.com/doc/tutorial/classes2/
 
 TODO:
+1. ќт ветки master создать ветку FractionSeparated, и в этой ветке
+   разделить классы Fraction и Point на файлы;
+
+
+DONE:
 1. ƒл€ класса String перегрузить оператор ввода:
 	String str;
 	cout << "¬ведите строку: "; cin >> str;

@@ -4,8 +4,9 @@
 //#define DEBUG_ASSERTION_FAILED_1
 //#define DEBUG_ASSERTION_FAILED_2
 //#define CONSTRUCTORS_CHECK
-//#define OPERATOR_PLUS_CHECK
+#define OPERATOR_PLUS_CHECK
 //#define KEYBOARD_INPUT_CHECK
+//#define CALLING_CONSTRUCTORS
 
 void main()
 {
@@ -81,6 +82,7 @@ void main()
 
 #endif // KEYBOARD_INPUT_CHECK
 
+#ifdef CALLING_CONSTRUCTORS
 	String str1;	//Default constructor
 	str1.print();
 	String str2(22);//Single-argument constructor
@@ -98,4 +100,6 @@ void main()
 	//При помощи фигурных скобок можно вызвать любой конструктор.
 	String str6 = str3;
 	str6.print();
+#endif // CALLING_CONSTRUCTORS
+
 }

@@ -13,6 +13,9 @@ using std::endl;
 
 class String;
 String operator+(const String& left, const String& right);
+std::ostream& operator<<(std::ostream& os, const String& obj);
+std::istream& operator>>(std::istream& is, String& obj);
+std::istream& getline(std::istream& is, String& obj);
 
 class String
 {
