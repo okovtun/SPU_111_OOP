@@ -6,6 +6,13 @@ TOREAD:
 https://cplusplus.com/doc/tutorial/classes2/
 
 TODO:
+1. От ветки master создать ветку FractionSeparated, и в этой ветке
+   разделить классы Fraction и Point на файлы;
+2. Вычислить, сколько памяти занимает 1 кадр с разрешением FullHD;
+3. Вычислить, сколько памяти занимает 1 кадр с разрешением 4K;
+4. В классе String реализовать MoveAssignment;
+
+DONE:
 1. Для класса String перегрузить оператор ввода:
 	String str;
 	cout << "Введите строку: "; cin >> str;
