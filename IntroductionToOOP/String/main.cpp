@@ -31,24 +31,17 @@ public:
 	//				Constructors:
 	explicit String(int size = 80) :size(size), str(new char[size] {})
 	{
-		//this->size = size;
-		//this->str = new char[size] {};
 		cout << "DefConstructor:\t" << this << endl;
 	}
-	String(const char* str) :size(strlen(str) + 1), str(new char[size] {})
+	String(const char* str) :String(strlen(str) + 1)
 	{
-		//this->size = strlen(str) + 1;
-		//this->str = new char[size] {};
 		for (int i = 0; i < size; i++)this->str[i] = str[i];
 		cout << "Constructor:\t" << this << endl;
 	}
-	String(const String& other) :size(other.size), str(new char[size] {})
+	String(const String& other) :String(other.str)
 	{
-		//this->size = other.size;
 		//Deep copy (Глубокое копирование, побитовое копирование, побайтовое/поэементное копирование)
-		//this->str = new char[size] {};
-		for (int i = 0; i < size; i++)this->str[i] = other.str[i];
-		cout << "CopyConstructor:\t" << this << endl;
+		cout << "CopyConstructor:" << this << endl;
 	}
 	~String()
 	{
@@ -241,4 +234,6 @@ void main()
 	String str5{};	//Default constructor
 	str5.print();
 	//При помощи фигурных скобок можно вызвать любой конструктор.
+	String str6 = str3;
+	str6.print();
 }
