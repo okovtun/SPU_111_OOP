@@ -6,6 +6,10 @@ TOREAD:
 https://cplusplus.com/doc/tutorial/classes2/
 
 TODO:
+1. Создать ветку AcademySeparated, и в этой ветке вынести все классы проекта Academy в отдельные файлы;
+2. Для всех классов перегрузить оператор вывода на экран;
+
+DONE:
 1. От ветки master создать ветку FractionSeparated, и в этой ветке
    разделить классы Fraction и Point на файлы;
 2. Вычислить, сколько памяти занимает 1 кадр с разрешением FullHD;
