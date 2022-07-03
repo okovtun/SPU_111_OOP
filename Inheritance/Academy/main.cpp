@@ -52,6 +52,11 @@ public:
 	}
 };
 
+std::ostream& operator<<(std::ostream& os, const Human& obj)
+{
+	return os << obj.get_last_name() << " " << obj.get_first_name() << " " << obj.get_age();
+}
+
 #define STUDENT_PARAMETERS	const std::string& speciality, const std::string& group, unsigned int year, float rating, float attendance
 #define STUDENT_ARGUMENTS	speciality, group, year, rating, attendance
 class Student :public Human
@@ -123,6 +128,16 @@ public:
 	}
 };
 
+std::ostream& operator<<(std::ostream& os, const Student& obj)
+{
+	return os << (Human&)obj << " "
+		<< obj.get_specialty() << " " 
+		<< obj.get_group() << " " 
+		<< obj.get_year() << " " 
+		<< obj.get_rating() << " " 
+		<< obj.get_attendance();
+}
+
 #define TEACHER_PARAMETERS	const std::string& specialty, unsigned int experience
 #define TEACHER_ARGUMENTS	specialty, experience
 class Teacher :public Human
@@ -162,6 +177,10 @@ public:
 		cout << specialty << " " << experience << endl;
 	}
 };
+std::ostream& operator<<(std::ostream& os, const Teacher& obj)
+{
+	return os << (Human&)obj << obj.get_specialty() << " " << obj.get_experience();
+}
 
 class Graduate :public Student
 {
@@ -191,6 +210,11 @@ public:
 		cout << " " << subject << endl;
 	}
 };
+
+std::ostream& operator<<(std::ostream& os, const Graduate& obj)
+{
+	return os << (Student&)obj << obj.get_subject();
+}
 
 //#define INHERITANCE_CHECK
 
@@ -230,7 +254,12 @@ void main()
 	cout << "\n---------------------------------------------------\n";
 	for (int i = 0; i < sizeof(group) / sizeof(group[0]); i++)
 	{
-		group[i]->info();
+		//group[i]->info();
+		cout << typeid(*group[i]).name() << endl;
+		//cout << *group[i] << endl;
+		if (typeid(*group[i]) == typeid(Student))cout << *dynamic_cast<Student*>(group[i]) << endl;
+		if (typeid(*group[i]) == typeid(Teacher))cout << *dynamic_cast<Teacher*>(group[i]) << endl;
+		if (typeid(*group[i]) == typeid(Graduate))cout << *dynamic_cast<Graduate*>(group[i]) << endl;
 		cout << "\n---------------------------------------------------\n";
 	}
 	for (int i = 0; i < sizeof(group) / sizeof(group[0]); i++)
