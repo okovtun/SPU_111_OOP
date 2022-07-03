@@ -6,6 +6,14 @@ TOREAD:
 https://cplusplus.com/doc/tutorial/classes2/
 
 TODO:
+В Solution Inheritance добавить проект Network и в этом проекте взять файл:
+https://github.com/okovtun/PV_011/blob/master/STL/Files/Task/201%20RAW.txt
+и в этом файле поменять местами столбцы с IP-адресом и MAC-адресом,
+при этом должен создаться новый файл.
+В этом же проекте, из файла 201RAW.txt создать файл формата:
+https://github.com/okovtun/PV_011/blob/master/STL/Files/Task/201.dhcpd
+
+DONE:
 1. Создать ветку AcademySeparated, и в этой ветке вынести все классы проекта Academy в отдельные файлы;
 2. Для всех классов перегрузить оператор вывода на экран;
 
