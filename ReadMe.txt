@@ -3,6 +3,19 @@ https://www.youtube.com/watch?v=MQwW_YFhVCU&list=PLeqyOOqxeiIPy9kTEWJfeRfP1SlTcc
 https://meet.google.com/mho-khdw-fhj
 
 TOREAD:
+https://ru.wikipedia.org/wiki/CSV
+https://cplusplus.com/reference/cstring/strtok/
+
+TODO:
+Реализовать иерархию классов геометрических фигур: 
+квадрат, прямоугольник, круг, треугольник и т.д.
+Для каждой фигуры нужно найти площадь, периметр, 
+вывести их на экран,
+а также вывести на экран первичные свойства фигуры
+(для квадрата это длина стороны, для прямоугольника - высота, ширина,
+для круга - радиус.....)
+
+TOREAD:
 https://cplusplus.com/doc/tutorial/classes2/
 
 TODO:
