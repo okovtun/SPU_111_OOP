@@ -8,6 +8,20 @@ https://ru.wikipedia.org/wiki/CSV
 https://cplusplus.com/reference/cstring/strtok/
 
 TODO:
+1. Ќаписать и проветрить метод erase(). ћетод erase() удал€ет значение по индексу;
+2. ѕроверочный код должен заработать:
+	ForwardList list1 = { 3, 5, 8, 13, 21 };
+	ForwardList list2 = { 34, 55, 89 };
+	ForwardList list3 = list1 + list2;
+3. ѕроверочный код должен заработать:
+	ForwardList list = { 3, 5, 8, 13, 21 };
+	for(int i: list)
+	{
+		cout << i << tab;
+	}
+	cout << endl;
+
+DONE:
 1. ¬о все геометрические фигуры добавить атрибут 'filled', который определ€ет, закрашена ли фигура, DONE
    или же отображаетс€ контуром;
 2. ¬ иерархию геометрических фигур добавить класс Circle.						DONE
