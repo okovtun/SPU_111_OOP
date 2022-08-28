@@ -8,8 +8,17 @@ https://ru.wikipedia.org/wiki/CSV
 https://cplusplus.com/reference/cstring/strtok/
 
 TODO:
-1. Написать и проветрить метод erase(). Метод erase() удаляет значение по индексу;
+1. Упростить процедуры добавления элементов до одного выражения;
 2. Проверочный код должен заработать:
+	List list = { 3, 5, 8, 13, 21 };
+	for(int i:list)
+		cout << i << tab; 
+	cout << endl;
+3. Обеспечить вывод списка в main() в обратном порядке;
+
+DONE:
+1. Написать и проветрить метод erase(). Метод erase() удаляет значение по индексу;
+2. Проверочный код должен заработать:			DONE
 	ForwardList list1 = { 3, 5, 8, 13, 21 };
 	ForwardList list2 = { 34, 55, 89 };
 	ForwardList list3 = list1 + list2;
