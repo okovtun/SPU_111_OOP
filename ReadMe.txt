@@ -8,6 +8,9 @@ https://ru.wikipedia.org/wiki/CSV
 https://cplusplus.com/reference/cstring/strtok/
 
 TODO:
+Создать ветку List2Separation и в ней разделить шаблонный класс List на файлы.
+
+DONE:
 1. Упростить процедуры добавления элементов до одного выражения;	DONE
 2. Проверочный код должен заработать:					DONE
 	List list = { 3, 5, 8, 13, 21 };
