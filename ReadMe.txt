@@ -2,6 +2,9 @@ https://github.com/okovtun/SPU_111_OOP.git
 https://www.youtube.com/watch?v=MQwW_YFhVCU&list=PLeqyOOqxeiIPy9kTEWJfeRfP1SlTccBPQ
 https://meet.google.com/mho-khdw-fhj
 
+STL:
+https://cplusplus.com/reference/stl/
+
 TOREAD:
 https://drive.google.com/drive/folders/1mIhAKMp5-Jpy6s5X8u924tRCXFEdHE_z?usp=sharing
 https://ru.wikipedia.org/wiki/CSV
